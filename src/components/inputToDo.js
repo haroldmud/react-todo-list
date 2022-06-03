@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
 
 class InputToDo extends Component {
-    state = { 
-        title :''
-     }
-    
-    onChange = e => {
-        this.setState({
-            title: e.target.value
-        });
+    state = {
+      title: '',
     }
 
-    submitHandler = e => {
-        e.preventDefault();
-        this.props.addToDoItemProps(this.state.title);
-        this.setState({
-            title:''
-        });
+    onChange = (e) => {
+      this.setState({
+        title: e.target.value,
+      });
     }
 
-    render() { 
-     return (
-      <form onSubmit={this.submitHandler}> 
-         <input type = 'text' 
+    submitHandler = (e) => {
+      e.preventDefault();
+      this.props.addToDoItemProps(this.state.title);
+      this.setState({
+        title: '',
+      });
+    }
+
+    render() {
+      return (
+      <form onSubmit={this.submitHandler}>
+         <input type = 'text'
                 value = {this.state.title}
                 name = 'title'
                 placeholder = 'Type task...'
@@ -30,8 +30,8 @@ class InputToDo extends Component {
          />
          <button type='submit'>Add</button>
       </form>
-     );
+      );
     }
 }
- 
+
 export default InputToDo;
